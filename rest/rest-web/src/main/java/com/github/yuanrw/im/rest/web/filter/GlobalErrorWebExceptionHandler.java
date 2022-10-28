@@ -26,10 +26,10 @@ import java.util.Map;
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
 
     public GlobalErrorWebExceptionHandler(
-        ErrorAttributes errorAttributes,
-        ResourceProperties resourceProperties,
-        ApplicationContext applicationContext,
-        ServerCodecConfigurer serverCodecConfigurer
+            ErrorAttributes errorAttributes,
+            ResourceProperties resourceProperties,
+            ApplicationContext applicationContext,
+            ServerCodecConfigurer serverCodecConfigurer
     ) {
         super(errorAttributes, resourceProperties, applicationContext);
         this.setMessageWriters(serverCodecConfigurer.getWriters());
@@ -46,7 +46,7 @@ public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHan
         Map<String, Object> errorPropertiesMap = getErrorAttributes(request, false);
 
         return ServerResponse.status(HttpStatus.OK)
-            .contentType(MediaType.APPLICATION_JSON_UTF8)
-            .body(BodyInserters.fromObject(errorPropertiesMap));
+                .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .body(BodyInserters.fromObject(errorPropertiesMap));
     }
 }

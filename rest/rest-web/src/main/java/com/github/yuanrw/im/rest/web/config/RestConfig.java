@@ -49,11 +49,11 @@ public class RestConfig {
         return properties;
     }
 
-    @Bean
-    public Integer init(Validator validator, RedisTemplate<String, String> redisTemplate) {
-        ValidHandler.setValidator(validator);
-        return 1;
-    }
+//    @Bean
+//    public Integer init(Validator validator, RedisTemplate<String, String> redisTemplate) {
+//        ValidHandler.setValidator(validator);
+//        return 1;
+//    }
 
     @Bean
     public SimpleRabbitListenerContainerFactory listenerFactory(ConnectionFactory connectionFactory) {
@@ -70,7 +70,7 @@ public class RestConfig {
 
     @Bean
     public ReactiveRedisTemplate<String, String> reactiveRedisTemplateString
-        (ReactiveRedisConnectionFactory connectionFactory) {
+            (ReactiveRedisConnectionFactory connectionFactory) {
         return new ReactiveRedisTemplate<>(connectionFactory, RedisSerializationContext.string());
     }
 }
